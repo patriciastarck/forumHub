@@ -9,11 +9,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/usuarios")
@@ -26,6 +25,13 @@ public class UserController {
 
     @Autowired
     private TokenService tokenService;
+
+    // Novo endpoint para listar todos os usuários
+    @GetMapping
+    public ResponseEntity<List<UserDetailDAO>> getAllUsers() {
+        var users = repository.findAll().stream().map(u -> new UserDetailDAO(u.getName(), u.getEmail())).toList();
+        return ResponseEntity.ok(users);
+    }
 
     @PostMapping
     @Transactional
