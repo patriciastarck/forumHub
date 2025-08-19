@@ -1,0 +1,9 @@
+CREATE TABLE usuarios (
+    id BIGSERIAL NOT NULL,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL,
+    is_admin BOOLEAN NOT NULL DEFAULT FALSE,
+
+    PRIMARY KEY(id)
+);

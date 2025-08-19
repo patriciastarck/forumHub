@@ -1,0 +1,11 @@
+CREATE TABLE topicos (
+    id BIGSERIAL NOT NULL,
+    titulo VARCHAR(100) NOT NULL UNIQUE,
+    mensagem VARCHAR(100) NOT NULL UNIQUE,
+    data_criacao TIMESTAMP NOT NULL,
+    status VARCHAR(255) NOT NULL DEFAULT 'NAO_RESPONDIDO',
+    autor BIGINT NOT NULL,
+
+    PRIMARY KEY(id),
+    CONSTRAINT fk_topicos_autor FOREIGN KEY(autor) REFERENCES usuarios(id)
+);
