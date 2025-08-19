@@ -60,6 +60,9 @@ Maven
 
 PostgreSQL
 
+### Documentação
+[Swagger](http://localhost:8080/forumHub/swagger-ui/index.html#/)
+
 ### Respostas
 <img width="513" height="535" alt="image" src="https://github.com/user-attachments/assets/8e3bfe8a-1d55-4d87-b4b2-c4a86eff53d8" />
 
